@@ -10,8 +10,8 @@ PImage kongLanzamiento1;
 PImage kongLanzamiento2;
 PImage marioSalto;
 PImage imgPeache;
-void setup(){
-  size(800,600);
+void setup() {
+  size(800, 600);
   imageMode(CENTER);
   textAlign(CENTER, CENTER);
   setupMario();
@@ -22,25 +22,25 @@ void setup(){
   marioCamina1= loadImage("05_marioCorriendo1.png");
   marioCamina2= loadImage("06_marioCorriendo2.png");
   imgBarril= loadImage("07_barril.png");
-  //imgKong= loadImage("08_kong.png");
- // kongLanzamiento1= loadImage("09_lanzamientoKong1.png");
-  //kongLanzamiento2= loadImage("10_lanzamientoKong2.png");
+  imgKong= loadImage("09_kong.png");
+  kongLanzamiento1= loadImage("08_lanzamientoKong1.png");
+  kongLanzamiento2= loadImage("10_lanzamientoKong2.png");
   marioSalto= loadImage("11_marioSaltando.png");
   //imgPeache= loadImage("12_peache.png");
+  imageKong = imgKong;
 }
-char estado = 'A'; 
-void draw(){
+char estado = 'A';
+void draw() {
   background(255);
-  switch(estado){
-    case 'A':
-      image(imgInicio, width/2, height/2);
-      break;
-    case 'S':
-      dibujaPantallaGame();
-      break;
-    case 'D':
-      image(imgGameOver,width/2, height/2);
-      break;
+  switch(estado) {
+  case 'A':
+    image(imgInicio, width/2, height/2);
+    break;
+  case 'S':
+    dibujaPantallaGame();
+    break;
+  case 'D':
+    image(imgGameOver, width/2, height/2);
+    break;
   }
-  
 }

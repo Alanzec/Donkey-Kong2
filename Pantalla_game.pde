@@ -10,16 +10,19 @@ float marioAy = 0;
 boolean estaSaltando = false;
 
 float marioTx= 0;
-float marioXi= 0;
-float marioX = 100;
+float marioXi= 250;
+float marioX = 0;
 float marioVx= 0;
 float marioVxi = 2;
 boolean esEmpujado = false;
 
 boolean camina1 = true;
 float tiempo = 0;
+float tiempoKong = 0;
 
 int alternarPaso = 0;
+char estadoKong = 'Q';
+PImage imageKong;
 void setupMario(){
   marioYi = height  -40;
   marioY = marioYi;
@@ -118,7 +121,24 @@ void dibujaPantallaGame(){
     }      
   }
   barriles();
+  tiempoKong ++;
+  if( tiempoKong % 50 == 0){
+    if(estadoKong == 'Q'){
+      estadoKong = '1';
+      imageKong = kongLanzamiento1;
+    }else{
+      if(estadoKong == '1'){
+      estadoKong = '2';
+      imageKong = kongLanzamiento2;
+      }else{
+        estadoKong = 'Q';
+        imageKong = imgKong; 
+      }
+    }
+  }
+    image(imageKong, 250, 180, 60,35);
 }
+
  
 void flipImageH(PImage img, float X, float Y, char sentido) {
   pushMatrix();
